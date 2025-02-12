@@ -1,14 +1,12 @@
-import Button from "./components/Button"
-import Input from "./components/Input"
+import Otp from "./components/Otp"
 function App() {
 
 
   return (
     <>
-      <div className="h-screen bg-blue-700">
+      <div className="h-screen bg-blue-700  flex justify-center ">
         <br /><br /><br /><br />
-        <Input type={"text"} placeholder={"Username"}></Input>
-        <Button disabled={false}>Sign Up</Button>
+       <Otp />
       </div>
     </>
   )
