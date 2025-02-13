@@ -21,18 +21,42 @@ function sum(a:number, b:number){
 let ans = sum(1, 2);
 console.log(ans);
 
-
-
-function greet(user : {name:string, age:number}){
-   console.log("hello" + user.name);
+type USER = {
+   name:string,
+   age:number
 }
 
-let user = {
+
+function greet(user1 : {name:string, age:number}){
+   console.log("hello" + user1.name);
+}
+
+let user1 = {
    name : "Rahul",
    age: 21
 }
 
-greet(user);
+greet(user1);
+
+
+function add(a:number, b:number) : number{
+   return a+b;
+}
+
+let val = add(4,8);
+console.log(val);
+
+function age(num:number):boolean{
+   if(num>=18){
+      return true;
+   }
+   else{
+      return false;
+   }
+}
+
+let res = age(7);
+console.log(res);
 
 
 
