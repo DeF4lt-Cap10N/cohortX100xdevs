@@ -1,4 +1,4 @@
 import chalk from 'chalk';
 
 
-console.log(chalk.green("rahul"));
+console.log(chalk.red("rahul"));
