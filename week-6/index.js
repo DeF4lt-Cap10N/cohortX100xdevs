@@ -7,6 +7,8 @@ app.use(express.json());
 
 const users = [];
 
+console.log("start");
+
 
 // generating a token
 function generateToken() {
@@ -18,10 +20,10 @@ function generateToken() {
         token += options[Math.floor(Math.random() * options.length)];
     }
     return token;
-}
+} 
 
 
-app.post("/signUp", function (req, resp) {
+app.post("/signUp", function (req, res) {
 
     const username = req.body.username;
     const password = req.body.password;
@@ -31,7 +33,7 @@ app.post("/signUp", function (req, resp) {
         password: password
     })
 
-    resp.json({
+    res.json({
         message: "You are signed up"
     })
 
@@ -39,7 +41,7 @@ app.post("/signUp", function (req, resp) {
 })
 
 
-app.post("/signIn", function (req, resp) {
+app.post("/signIn", function (req, res) {
 
     const username = req.body.username;
     const password = req.body.password;
@@ -55,13 +57,13 @@ app.post("/signIn", function (req, resp) {
     if (foundUser) {
         const token = generateToken();
         foundUser.token = token;
-        resp.json({
+        res.json({
             message: token
         })
     }
     else{
-        resp.status(403).send({
-            message: "invalid username or password"
+        res.status(403).send({
+            message: "invalid username for password"
         })
     }
 
@@ -69,7 +71,7 @@ app.post("/signIn", function (req, resp) {
 
 })
 
-app.get("/me", function(req, resp) {
+app.get("/me", function(req, res) {
     const token = req.headers.token;
     let foundUser = null;
 
@@ -80,13 +82,13 @@ app.get("/me", function(req, resp) {
     }
 
     if(foundUser){
-        resp.json({
+        res.json({
             username: foundUser.username,
             password:foundUser.password
         })
     }
     else{
-        resp.json({
+        res.json({
             message:"token invalid"
         })
     }
@@ -96,3 +98,4 @@ app.get("/me", function(req, resp) {
 
 app.listen(4000); 
 
+console.log("end");
