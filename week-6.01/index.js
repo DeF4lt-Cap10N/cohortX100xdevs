@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
+const jwt = require("jsonwebtoken");
 
-const { v4: uuidv4 } = require('uuid');
+const JWT_SECRET = "fuckmiddelware";
+
+// const { v4: uuidv4 } = require('uuid');
 
 app.use(express.json());
 const middleware = require("./middelware")
@@ -50,7 +53,10 @@ app.post("/signIn", (req, res)=>{
     const foundUser = users.find((e)=>e.userName===userName && e.userPass===userPass);
     if(!foundUser)return res.status(400).send("Invalid user");
 
-    const token = uuidv4();
+
+    const token = jwt.sign({userName:foundUser.userName}, JWT_SECRET);
+
+    // const token = uuidv4();
     foundUser.token=token;
     res.status(200).json({
         message:"signin successfully",
