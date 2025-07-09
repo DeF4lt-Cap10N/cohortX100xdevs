@@ -24,8 +24,9 @@ app.post("/signUp", (req, res)=>{
     }
 
     const oldUser = users.find((e)=>e.userName===userName && e.userPass===userPass);
+    
     if(oldUser){
-        return res.status(400).send("change the userName");
+        return res.status(400).send("user already signup!");
     }
 
     users.push({userName, userPass});
