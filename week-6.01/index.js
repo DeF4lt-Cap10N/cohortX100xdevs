@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = "fuckmiddelware";
+const JWT_SECRET = "secretnameisaksh123kas";
 
 // const { v4: uuidv4 } = require('uuid');
 
@@ -70,7 +70,7 @@ app.post("/signIn", (req, res)=>{
 })
 
 app.get("/profile", middleware, (req, res)=>{
-    res.status(200).send(`welcome to my world ${req.body.userName}`)
+    res.status(200).send(`welcome to my world ${req.user.userName}`)
 })
 
 
