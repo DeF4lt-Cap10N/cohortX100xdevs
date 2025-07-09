@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
+app.use(cors());
 
 const JWT_SECRET = "secretnameisaksh123kas";
 
