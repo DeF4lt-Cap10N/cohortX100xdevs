@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
-const objectId = mongoose.Schema;
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 const User = new Schema({
     email:{type:String, unique:true},
-    passWord:String,
+    password:String,
     name:String
 })
 
@@ -11,14 +12,14 @@ const User = new Schema({
 const Todo = new Schema({
     title:String,
     done:Boolean,
-    userId:objectId
+    userId:ObjectId
 })
 
-const userModle = mongoose.model("users", User);
-const todoModel = mongoose.model("todos", Todo);
+const UserModel = mongoose.model("users", User);
+const TodoModel = mongoose.model("todos", Todo);
 
 
 module.exports = {
-    userModle:userModle,
-    todoModel:todoModel
+    UserModel,
+    TodoModel
 };
