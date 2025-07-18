@@ -9,6 +9,8 @@ dotenv.config();
 
 const jwt = require("jsonwebtoken");
 
+const bcrypt = require("bcrypt")
+
 const { UserModel, TodoModel } = require("./db");
 
 
@@ -22,9 +24,12 @@ app.get("/", (req, res) => {
 app.post("/signUp", async (req, res) => {
     const { email, password, name } = req.body;
 
+
+    const hashPass = await bcrypt.hash(password, 5);
+
     await UserModel.create({
         email: email,
-        password: password,
+        password: hashPass,
         name: name,
     })
 
@@ -38,12 +43,12 @@ app.post("/signIn", async (req, res) => {
 
     const user = await UserModel.findOne({
         email: email,
-        password: password
     })
-
     console.log(user);
 
-    if (user) {
+    const matchPass = bcrypt.compare(password, user.password);
+
+    if (matchPass) {
         const token = jwt.sign({
             id: user._id.toString()
         }, process.env.JWT_SECRET);
