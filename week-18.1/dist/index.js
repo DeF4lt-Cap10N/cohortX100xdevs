@@ -10,7 +10,6 @@ app.get("/user", async (req, res) => {
     });
 });
 app.get("/user/:id", async (req, res) => {
-    // const id = req.params.id as unknown as number;
     const id = req.params.id;
     const user = await client.user.findFirst({
         where: {
