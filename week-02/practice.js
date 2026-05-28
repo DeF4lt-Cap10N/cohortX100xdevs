@@ -1,99 +1,111 @@
-// const fs = require("fs");
+// // const fs = require("fs");
 
 
 
-// const content = fs.readFileSync("a-1.txt", "utf-8");
-// console.log(content);
+// // const content = fs.readFileSync("a-1.txt", "utf-8");
+// // console.log(content);
 
-// const content1 = fs.readFileSync("a-2.txt", "utf-8");
-// console.log(content1);
+// // const content1 = fs.readFileSync("a-2.txt", "utf-8");
+// // console.log(content1);
 
-// function print(err, data){
-//    if(err){
-//       console.log("file is not found");
-//    }
-//    else{
-//       console.log(data);
-//    }
+// // function print(err, data){
+// //    if(err){
+// //       console.log("file is not found");
+// //    }
+// //    else{
+// //       console.log(data);
+// //    }
 
-// }
+// // }
 
-// fs.readFile("a-1.txt", "utf-8", print);
+// // fs.readFile("a-1.txt", "utf-8", print);
 
-// console.log("hiii");
-
-
-// function print(){
-//    console.log("timer done");
-// }
-
-// setTimeout(print, 1000);
-
-// let  c = 0;
-// for(let i=0; i<10000000000; i++){
-//    c++;
-// }
-// console.log("heavy is done");
-
-/////////////////////////////////////////////////////
+// // console.log("hiii");
 
 
+// // function print(){
+// //    console.log("timer done");
+// // }
 
-// class Reactangle{
+// // setTimeout(print, 1000);
 
-//    constructor(height, width, color){
-//       this.height = height;
-//       this.width = width;
-//       this.color = color;
-//    }
+// // let  c = 0;
+// // for(let i=0; i<10000000000; i++){
+// //    c++;
+// // }
+// // console.log("heavy is done");
 
-//    area(){
-//       return this.width* this.height;
-//    }
-//    paint(){
+// /////////////////////////////////////////////////////
+
+
+
+// // class Reactangle{
+
+// //    constructor(height, width, color){
+// //       this.height = height;
+// //       this.width = width;
+// //       this.color = color;
+// //    }
+
+// //    area(){
+// //       return this.width* this.height;
+// //    }
+// //    paint(){
        
-//        return `the area is colored ${this.color}`
-//    }
-// }
+// //        return `the area is colored ${this.color}`
+// //    }
+// // }
 
-// const react = new Reactangle(10, 10, "blue");
+// // const react = new Reactangle(10, 10, "blue");
 
-// console.log(react.area() , react.paint());
-
-
-
-// const map = new Map();
-
-// map.set('name', 'rahul');
-// map.set('age', 21);
-
-// const firstName = map.get('name');
-// console.log(firstName);
+// // console.log(react.area() , react.paint());
 
 
-// function setTimeoutPromisified(ms) {
-//    return new Promise(res=>setTimeout(res, ms));
-// }
+
+// // const map = new Map();
+
+// // map.set('name', 'rahul');
+// // map.set('age', 21);
+
+// // const firstName = map.get('name');
+// // console.log(firstName);
+
+
+// // function setTimeoutPromisified(ms) {
+// //    return new Promise(res=>setTimeout(res, ms));
+// // }
+
+// // function main(){
+// //    console.log("hello");
+// // }
+
+// // setTimeoutPromisified(3000).then(main);
+
+// // function promiseCallback(resolve){
+// //    setTimeout(resolve, 3000);
+// // }
+
+// // promiseCallback(function(){
+// //    console.log("hello rahul");
+// // })
+
 
 // function main(){
-//    console.log("hello");
+//    // console.log("hello");
 // }
 
-// setTimeoutPromisified(3000).then(main);
+// let p = new Promise(main);
 
-// function promiseCallback(resolve){
-//    setTimeout(resolve, 3000);
-// }
-
-// promiseCallback(function(){
-//    console.log("hello rahul");
-// })
+// console.log(p);
 
 
-function main(){
-   // console.log("hello");
-}
+const fs = require("fs");
 
-let p = new Promise(main);
-
-console.log(p);
+fs.readFile("a.txt", "utf-8", (err, data)=>{
+   if(err){
+      console.log("there are prob", err);
+   }
+   else {
+      console.log(data);
+   }
+})
